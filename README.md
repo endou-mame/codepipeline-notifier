@@ -1,19 +1,18 @@
-# Welcome to your CDK TypeScript project
+# codepipeline-notifier
 
-This is a blank project for CDK development with TypeScript.
-
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+📢 codepipeline-notifier
 
 ## 開発環境構築
 
 開発に必要なツールをインストールする
 
 ```bash
-# brew install aws-cdk npm install -g aws-cdk aws-cdk-local で代用
 brew install aws-sam-cli
 brew install awscli-local
-# brew install localstack --> docker container で代用
 ```
+
+~~brew install aws-cdk npm install -g~~ # aws-cdk aws-cdk-local で代用<br>
+~~brew install localstack=~~ # docker container で代用
 
 AWS アクセスキーを情報を設定する
 
@@ -42,20 +41,9 @@ sam local start-api
 > [!NOTE]
 > s `http://127.0.0.1:3000` でローカル環境でサーバーが起動する
 
-## Useful commands
-
-- `pnpm build` compile typescript to js
-- `pnpm watch` watch for changes and compile
-- `pnpm test` perform the jest unit tests
-- `pnpm dlx cdk bootstrap --profile {your-profile-name}` Initializes the AWS Cloud Development Kit (CDK) environment in a specific AWS account and region. It sets up the necessary resources, like an S3 bucket and IAM roles, for deploying AWS infrastructure using the CDK.
-- `pnpm dlx cdk deploy --profile {your-profile-name}` deploy this stack to your default AWS account/region
-- `pnpm dlx cdk deploy --profile {your-profile-name} --require-approval never` deploy this stack to your default AWS account/region skip confirmation
-- `pnpm dlx cdk diff` compare deployed stack with current state
-- `pnpm dlx cdk synth` emits the synthesized CloudFormation template
-
 ## ローカルでAWSを構築する
 
-- [LocalStack](https://www.localstack.cloud/) を使用します。
+-[LocalStack](https://www.localstack.cloud/) を使用します。
 
 > [!WARNING]
 > ただし無料枠で利用できるサービスには限りがあるので注意が必要です。<br>
@@ -84,3 +72,14 @@ pnpm test
 ```sh
 pnpm test -- -u
 ```
+
+## 便利コマンド集
+
+- `pnpm build` typescript を js にコンパイルする
+- `pnpm watch` 変更監視(ホットリロード)を有効にしてコンパイルする
+- `pnpm test` jest のユニットテストを実行する
+- `pnpm dlx cdk bootstrap --profile {your-profile-name}` AWS Cloud Development Kit (CDK) 環境を特定の AWS アカウントとリージョンで初期化する。CDKを使用してAWSインフラストラクチャをデプロイするために、S3バケットやIAMロールのような必要なリソースを設定します。
+- `pnpm dlx cdk deploy --profile {your-profile-name}` スタックをデフォルトの AWS アカウント/リージョンにデプロイする
+- `pnpm dlx cdk deploy --profile {your-profile-name} --require-approval never` スタックをデフォルトの AWS アカウント/リージョンにデプロイする。
+- `pnpm dlx cdk diff` デプロイされたスタックと現在の状態を比較する
+- `pnpm dlx cdk synth` 合成された CloudFormation テンプレートを生成する
