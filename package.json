@@ -1,0 +1,41 @@
+{
+  "name": "@endou-mame/codepipeline-notifier",
+  "version": "0.1.0",
+  "bin": {
+    "deployment": "bin/codepipeline-notifier.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "cdk": "cdk",
+    "test": "jest",
+    "watch": "tsc -w",
+    "cdklocal:deploy": "cdklocal bootstrap && cdklocal deploy --require-approval never",
+    "lambda:invoke": "awslocal lambda invoke --function-name PublisherLambda output.txt"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "2.158.0",
+    "constructs": "^10.0.0",
+    "source-map-support": "^0.5.21"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.11.0",
+    "@types/aws-lambda": "^8.10.145",
+    "@types/eslint__js": "^8.42.3",
+    "@types/jest": "^29.5.12",
+    "@types/node": "22.5.4",
+    "aws-cdk": "2.158.0",
+    "aws-cdk-local": "2.18.0",
+    "dotenv": "^16.4.5",
+    "esbuild": "^0.23.1",
+    "eslint": "^9.11.0",
+    "eslint-config-prettier": "^9.1.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.3.3",
+    "prettier-plugin-organize-imports": "^4.1.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2",
+    "typescript-eslint": "^8.6.0",
+    "dompurify": "^3.1.6"
+  }
+}

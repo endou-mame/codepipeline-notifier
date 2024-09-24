@@ -1,0 +1,67 @@
+{
+  "Records": [
+    {
+      "EventSource": "aws:sns",
+      "EventVersion": "1.0",
+      "EventSubscriptionArn": "arn:aws:sns:us-east-1:{{{accountId}}}:ExampleTopic",
+      "Sns": {
+        "Type": "Notification",
+        "MessageId": "95df01b4-ee98-5cb9-9903-4c221d41eb5e",
+        "TopicArn": "arn:aws:sns:us-east-1:123456789012:ExampleTopic",
+        "Subject": "example subject",
+        "Message": {
+          "account": "123456789012",
+          "detailType": "CodePipeline Action Execution State Change",
+          "region": "us-west-2",
+          "source": "aws.codepipeline",
+          "time": "2021-06-24T00:45:44Z",
+          "notificationRuleArn": "arn:aws:codestar-notifications:us-west-2:123456789012:notificationrule/a69c62c21EXAMPLE",
+          "detail": {
+            "pipeline": "myPipeline",
+            "execution-id": "12345678-1234-5678-abcd-12345678abcd",
+            "start-time": "2023-10-26T13:51:09.981Z",
+            "stage": "Deploy",
+            "action-execution-id": "47f821c5-a902-44b2-ae61-b878d31ecd21",
+            "action": "Deploy",
+            "input-artifacts": [
+              {
+                "name": "SourceArtifact",
+                "s3location": {
+                  "bucket": "codepipeline-us-east-1-EXAMPLE",
+                  "key": "myPipeline/SourceArti/EXAMPLE"
+                }
+              }
+            ],
+            "state": "STARTED",
+            "region": "us-east-1",
+            "type": {
+              "owner": "AWS",
+              "provider": "CodeDeploy",
+              "category": "Deploy",
+              "version": "1"
+            },
+            "version": 1.0,
+            "pipeline-execution-attempt": 1.0
+          },
+          "resources": ["arn:aws:codepipeline:us-east-1:123456789012:myPipeline"],
+          "additionalAttributes": {}
+        },
+        "Timestamp": "1970-01-01T00:00:00.000Z",
+        "SignatureVersion": "1",
+        "Signature": "EXAMPLE",
+        "SigningCertUrl": "EXAMPLE",
+        "UnsubscribeUrl": "EXAMPLE",
+        "MessageAttributes": {
+          "Test": {
+            "Type": "String",
+            "Value": "TestString"
+          },
+          "TestBinary": {
+            "Type": "Binary",
+            "Value": "TestBinary"
+          }
+        }
+      }
+    }
+  ]
+}

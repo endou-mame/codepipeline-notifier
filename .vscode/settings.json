@@ -1,0 +1,51 @@
+{
+  "editor.bracketPairColorization.enabled": true,
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "never",
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // "editor.tabSize": 2,
+  "editor.rulers": [100],
+  // ESLint settings
+  // "eslint.workingDirectories": [{ "pattern": "./apps/*/" }, { "pattern": "./packages/*/" }],
+  "eslint.enable": true,
+  "eslint.validate": ["js", "ts", "vue"],
+  // prettier settings
+  "prettier.enable": true,
+  "prettier.configPath": "./prettier.config.mjs",
+  "prettier.ignorePath": "./.gitignore",
+  // AWS Toolkit settings
+  // 匿名の使用状況データの送信を無効にする
+  "aws.telemetry": false,
+  // highlight settings
+  "todohighlight.defaultStyle": {
+    "border": "1px solid #FFF",
+    "borderRadius": "3px"
+  },
+  "todohighlight.keywords": [
+    {
+      "text": "BUG:",
+      "color": "#FFFFFF",
+      "backgroundColor": "#DC3545"
+    },
+    {
+      "text": "NOTE:",
+      "color": "#FFFFFF",
+      "backgroundColor": "#98C379"
+    },
+    {
+      "text": "HACK:",
+      "color": "#FFFFFF",
+      "backgroundColor": "#C678DD"
+    },
+    {
+      "text": "DEBUG:",
+      "color": "#FFFFFF",
+      "backgroundColor": "#61AFEF"
+    }
+  ]
+}

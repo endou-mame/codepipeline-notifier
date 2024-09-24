@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CodepipelineNotifierStack Snapshot Test Snapshot が一致すること 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "CodepipelineNotifierForTeamsLambda4B2B5B50": {
+      "DependsOn": [
+        "CodepipelineNotifierForTeamsLambdaServiceRole5C8F4E3A",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
+          },
+          "S3Key": "5ea48f7de447a7bc5b818d257ea8dac52b58ea0f09f60f48c3339797a70c9592.zip",
+        },
+        "Environment": {
+          "Variables": {
+            "TEAMS_WEBHOOK_URL": "dummy",
+          },
+        },
+        "FunctionName": "codepipeline-notifier-for-teams",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::GetAtt": [
+            "CodepipelineNotifierForTeamsLambdaServiceRole5C8F4E3A",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs20.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "CodepipelineNotifierForTeamsLambdaAllowInvokeCodepipelineNotifierStackCodepipelineNotifierSnsTopic065B5B5C34E95183": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "CodepipelineNotifierForTeamsLambda4B2B5B50",
+            "Arn",
+          ],
+        },
+        "Principal": "sns.amazonaws.com",
+        "SourceArn": {
+          "Ref": "CodepipelineNotifierSnsTopicC453A45B",
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "CodepipelineNotifierForTeamsLambdaCodepipelineNotifierSnsTopic9F3F1ADB": {
+      "Properties": {
+        "Endpoint": {
+          "Fn::GetAtt": [
+            "CodepipelineNotifierForTeamsLambda4B2B5B50",
+            "Arn",
+          ],
+        },
+        "Protocol": "lambda",
+        "TopicArn": {
+          "Ref": "CodepipelineNotifierSnsTopicC453A45B",
+        },
+      },
+      "Type": "AWS::SNS::Subscription",
+    },
+    "CodepipelineNotifierForTeamsLambdaServiceRole5C8F4E3A": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "CodepipelineNotifierSnsTopicC453A45B": {
+      "Properties": {
+        "DisplayName": "codepipeline-notifier",
+        "TopicName": "codepipeline-notifier",
+      },
+      "Type": "AWS::SNS::Topic",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;

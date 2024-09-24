@@ -1,0 +1,72 @@
+{
+  "Records": [
+    {
+      "EventSource": "aws:sns",
+      "EventVersion": "1.0",
+      "EventSubscriptionArn": "arn:aws:sns:us-east-1:{{{accountId}}}:ExampleTopic",
+      "Sns": {
+        "Type": "Notification",
+        "MessageId": "95df01b4-ee98-5cb9-9903-4c221d41eb5e",
+        "TopicArn": "arn:aws:sns:us-east-1:123456789012:ExampleTopic",
+        "Subject": "example subject",
+        "Message": {
+          "account": "123456789012",
+          "detailType": "CodePipeline Action Execution State Change",
+          "region": "us-west-2",
+          "source": "aws.codepipeline",
+          "time": "2021-06-24T00:45:44Z",
+          "notificationRuleArn": "arn:aws:codestar-notifications:us-west-2:ACCOUNT:notificationrule/a69c62c21EXAMPLE",
+          "detail": {
+            "pipeline": "myPipeline",
+            "execution-id": "arn:aws:codepipeline:us-west-2:123456789012:myPipeline",
+            "start-time": "2023-10-26T13:51:09.981Z",
+            "stage": "Source",
+            "execution-result": {
+              "external-execution-url": "https://us-west-2.console.aws.amazon.com/codecommit/home#/repository/my-repo/commit/8cf40f2EXAMPLE",
+              "external-execution-summary": "Edited index.html",
+              "external-execution-id": "36ab3ab7EXAMPLE"
+            },
+            "output-artifacts": [
+              {
+                "name": "SourceArtifact",
+                "s3location": {
+                  "bucket": "codepipeline-us-west-2-EXAMPLE",
+                  "key": "myPipeline/SourceArti/EXAMPLE"
+                }
+              }
+            ],
+            "action-execution-id": "47f821c5-a902-44b2-ae61-b878d31ecd21",
+            "action": "Source",
+            "state": "SUCCEEDED",
+            "region": "us-west-2",
+            "type": {
+              "owner": "AWS",
+              "provider": "CodeCommit",
+              "category": "Source",
+              "version": "1"
+            },
+            "version": 1.0,
+            "pipeline-execution-attempt": 1.0
+          },
+          "resources": ["arn:aws:codepipeline:us-west-2:123456789012:myPipeline"],
+          "additionalAttributes": {}
+        },
+        "Timestamp": "1970-01-01T00:00:00.000Z",
+        "SignatureVersion": "1",
+        "Signature": "EXAMPLE",
+        "SigningCertUrl": "EXAMPLE",
+        "UnsubscribeUrl": "EXAMPLE",
+        "MessageAttributes": {
+          "Test": {
+            "Type": "String",
+            "Value": "TestString"
+          },
+          "TestBinary": {
+            "Type": "Binary",
+            "Value": "TestBinary"
+          }
+        }
+      }
+    }
+  ]
+}
